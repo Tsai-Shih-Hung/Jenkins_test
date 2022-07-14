@@ -19,7 +19,7 @@ pipeline{
         stage('test ping'){
             steps{
                 sh'''
-                ansiblePlaybook become: true, credentialsId: 'ansible', inventory: './', playbook: 'test.yaml'
+                ansiblePlaybook become: true, credentialsId: 'ansible', disableHostKeyChecking: true, inventory: './inventory', playbook: 'test.yaml'
                 '''
             }
         }
