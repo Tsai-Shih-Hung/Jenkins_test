@@ -24,7 +24,7 @@ pipeline{
         }
         stage('new vm'){
             steps{
-                ansiblePlaybook become: true, credentialsId: 'ansible', disableHostKeyChecking: true, extras: 'ansible_user=root,ansible_password=123456', installation: 'ansible', inventory: 'inventory', playbook: 'addnewuser.yaml'
+                ansiblePlaybook become: true, credentialsId: 'ansible', disableHostKeyChecking: true, extras: 'ansible_password=123456', installation: 'ansible', inventory: 'inventory', playbook: 'addnewuser.yaml'
                
             }
         }
