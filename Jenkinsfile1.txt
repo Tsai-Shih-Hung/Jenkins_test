@@ -10,7 +10,7 @@ pipeline{
 		stage('test version'){
             steps{
                 sh '''
-			    ansilbe --version
+			    ansible --version
     		    '''
             }
         }
