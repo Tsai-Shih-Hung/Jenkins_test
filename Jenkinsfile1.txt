@@ -19,7 +19,7 @@ pipeline{
         stage('test ping'){
             steps{
                 sh'''
-                ansiblePlaybook become: true, credentialsId: 'ansible', disableHostKeyChecking: true, inventory: './inventory', playbook: 'test.yaml'
+                ansible-playbook /var/lib/jenkins/workspace/ansible_pipeline/tset.yaml
                 '''
             }
         }
