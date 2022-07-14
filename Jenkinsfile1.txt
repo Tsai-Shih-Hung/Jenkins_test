@@ -6,6 +6,11 @@ pipeline{
             steps{
                 echo 'hello'
             }
+		steps{
+                sh '''
+			ansilbe --version
+			'''
+            }
         }
     }
 }
