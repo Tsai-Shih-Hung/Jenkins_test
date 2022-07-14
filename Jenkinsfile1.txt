@@ -6,10 +6,12 @@ pipeline{
             steps{
                 echo 'hello'
             }
+        }
 		stage('test version'){
+            steps{
                 sh '''
-			ansilbe --version
-			'''
+			    ansilbe --version
+    		    '''
             }
         }
     }
