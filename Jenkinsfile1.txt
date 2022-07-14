@@ -28,13 +28,13 @@ pipeline{
                 echo '192.168.81.135' 
             }
         }
-        stage('new vm'){
+        stage('add inventory'){
             steps{
                 echo '192.168.81.135' >> inventory
                 cat inventory
             }
         }
-        stage('new vm'){
+        stage('check result'){
             steps{
                sh'''
                 ansible-playbook webservers -m ping
