@@ -19,7 +19,7 @@ pipeline{
         stage('test ping'){
             steps{
                 sh'''
-                ansible-playbook test.yaml
+                ansiblePlaybook become: true, credentialsId: 'ansible', inventory: './', playbook: 'test.yaml'
                 '''
             }
         }
