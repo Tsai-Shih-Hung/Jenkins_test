@@ -18,8 +18,7 @@ pipeline{
         }
         stage('test ping'){
             steps{
-                ansiblePlaybook become: true, credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory', playbook: 'test.yaml'
-
+                ansible-playbook test.yaml  
             }
         }
         stage('new vm'){
@@ -32,7 +31,7 @@ pipeline{
         stage('add inventory'){
             steps{
                 sh'''
-                echo '192.168.81.135' >> ./inventory
+                echo '192.168.81.135' >> /etc/ansible/hosts
                 cat inventory
                 '''
             }
@@ -40,7 +39,7 @@ pipeline{
         stage('check result'){
             steps{
                sh'''
-                ansible webservers -m ping -u root -b 
+                ansible-playbook ping.yaml 
                '''
             }
         }

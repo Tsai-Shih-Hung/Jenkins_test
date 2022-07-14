@@ -1,0 +1,9 @@
+---      
+- name: ping yaml
+  hosts: webservers
+  remote_user: root
+  become: true
+  tasks: 
+    - name: ping yaml
+      debug:
+        msg: "{{ ansible_facts['default_ipv4']['address']  }}"
