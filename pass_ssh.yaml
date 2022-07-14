@@ -1,5 +1,7 @@
 - name: Set authorized key taken from file
   hosts: new
+  remote_user: root
+  become: true
   tasks: 
     - name: pass the key 
       authorized_key:
