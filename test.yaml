@@ -1,6 +1,7 @@
 ---
 - name: test yaml work in jenkins
   hosts: webservers
+  remote_user: root
   become: yes
   tasks:
     - name: debug hello
