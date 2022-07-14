@@ -19,7 +19,7 @@ pipeline{
         stage('test ping'){
             steps{
                 sh'''
-                ansible-playbook /var/lib/jenkins/workspace/ansible_pipeline/tset.yaml
+                ansible-playbook /var/lib/jenkins/workspace/ansible_pipeline/test.yaml
                 '''
             }
         }
