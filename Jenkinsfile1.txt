@@ -40,7 +40,7 @@ pipeline{
         stage('check result'){
             steps{
                sh'''
-                ansible webservers -m ping
+                ansible webservers -m ping -u root -b 
                '''
             }
         }
