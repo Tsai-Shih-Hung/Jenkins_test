@@ -1,0 +1,8 @@
+---
+- name: test yaml work in jenkins
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: debug hello
+      debug:
+        msg: "hello from jenkins"
