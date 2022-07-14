@@ -18,7 +18,9 @@ pipeline{
         }
         stage('test ping'){
             steps{
+                sh '''
                 ansible-playbook test.yaml  
+                '''
             }
         }
         stage('new vm'){
