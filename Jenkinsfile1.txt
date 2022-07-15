@@ -18,9 +18,7 @@ pipeline{
         }
         stage('test ping'){
             steps{
-                sh '''
-                ansible-playbook test.yaml  
-                '''
+                ansiblePlaybook become: true, credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'test.yaml'
             }
         }
         stage('new vm'){
