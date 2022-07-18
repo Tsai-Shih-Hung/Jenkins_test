@@ -27,6 +27,14 @@ pipeline{
                 playbook: 'test.yaml'
             }
         }
+          stage('add inventory'){
+            steps{
+                sh'''
+                echo '192.168.81.135' >> /etc/ansible/hosts
+                cat /etc/ansible/hosts
+                '''
+            }
+        }
         stage('new vm'){
             steps{
                 ansiblePlaybook become: true, 
@@ -39,14 +47,6 @@ pipeline{
                 installation: 'ansible', 
                 inventory: '/etc/ansible/hosts', 
                 playbook: 'addnewuser.yaml'
-            }
-        }
-        stage('add inventory'){
-            steps{
-                sh'''
-                echo '192.168.81.135' >> /etc/ansible/hosts
-                cat /etc/ansible/hosts
-                '''
             }
         }
         stage('check result'){
